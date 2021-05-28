@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodePen - bootstrap 4 navbar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css'>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<style>@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+
+i {
+	margin-right: 10px;
+}
+/*----------multi-level-accordian-menu------------*/
+.navbar-logo{
+	padding: 15px;
+	color: #fff;
+}
+.navbar-mainbg{
+	background-color: #5161ce;
+    background: linear-gradient( 20deg, #ff3f00, #ff3f00);
+	padding: 0px;
+}
+#navbarSupportedContent{
+	overflow: hidden;
+	position: relative;
+}
+#navbarSupportedContent ul{
+	padding: 0px;
+	margin: 0px;
+}
+#navbarSupportedContent ul li a i{
+	margin-right: 10px;
+}
+#navbarSupportedContent li {
+	list-style-type: none;
+	float: left;
+}
+#navbarSupportedContent ul li a{
+	    color: #FFFFFF;
+
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+    padding: 20px 20px;
+    transition-duration:0.6s;
+	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+}
+#navbarSupportedContent>ul>li.active>a{
+
+	    color: #000000;
+
+	background-color: transparent;
+	transition: all 0.7s;
+}
+#navbarSupportedContent a:not(:only-child):after {
+	content: "\f105";
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	font-size: 14px;
+	font-family: "Font Awesome 5 Free";
+	display: inline-block;
+	padding-right: 3px;
+	vertical-align: middle;
+	font-weight: 900;
+	transition: 0.5s;
+}
+#navbarSupportedContent .active>a:not(:only-child):after {
+	transform: rotate(90deg);
+}
+.hori-selector{
+	display:inline-block;
+	position:absolute;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	transition-duration:0.6s;
+	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	background-color: #fff;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	margin-top: 10px;
+}
+.hori-selector .right,
+.hori-selector .left{
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	background-color: #fff;
+	bottom: 10px;
+}
+.hori-selector .right{
+	right: -25px;
+}
+.hori-selector .left{
+	left: -25px;
+}
+.hori-selector .right:before,
+.hori-selector .left:before{
+	content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+        background-color: #000000;
+
+
+
+}
+.hori-selector .right:before{
+	bottom: 0;
+    right: -25px;
+}
+.hori-selector .left:before{
+	bottom: 0;
+    left: -25px;
+}
+
+
+@media(min-width: 992px){
+	.navbar-expand-custom {
+	    -ms-flex-flow: row nowrap;
+	    flex-flow: row nowrap;
+	    -ms-flex-pack: start;
+	    justify-content: flex-start;
+	}
+	.navbar-expand-custom .navbar-nav {
+	    -ms-flex-direction: row;
+	    flex-direction: row;
+	}
+	.navbar-expand-custom .navbar-toggler {
+	    display: none;
+	}
+	.navbar-expand-custom .navbar-collapse {
+	    display: -ms-flexbox!important;
+	    display: flex!important;
+	    -ms-flex-preferred-size: auto;
+	    flex-basis: auto;
+	}
+}
+
+
+@media (max-width: 991px){
+	#navbarSupportedContent ul li a{
+		padding: 12px 30px;
+	}
+	.hori-selector{
+		margin-top: 0px;
+		margin-left: 10px;
+		border-radius: 0;
+		border-top-left-radius: 25px;
+		border-bottom-left-radius: 25px;
+	}
+	.hori-selector .left,
+	.hori-selector .right{
+		right: 10px;
+	}
+	.hori-selector .left{
+		top: -25px;
+		left: auto;
+	}
+	.hori-selector .right{
+		bottom: -25px;
+	}
+	.hori-selector .left:before{
+		left: -25px;
+		top: -25px;
+	}
+	.hori-selector .right:before{
+		bottom: -25px;
+		left: -25px;
+	}
+}
+</style><style>@import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+body {
+    background-color: #ffffff;
+  font-family: "Raleway", sans-serif;
+}
+
+.container {
+    max-width: 55rem;
+
+  margin: 3rem auto;
+}
+
+.card {    box-shadow: 4px 8px 28px rgb(39 44 113 / 10%), 1px 3px 38px rgb(39 44 49 / 8%);
+
+  border-radius: 5px;
+  background-color: #fff;
+}
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px 5px 0 0;
+}
+
+.content {
+  padding: 2rem;
+}
+.content h1 {
+  font-weight: 800;
+  font-size: 2rem;
+  color: #374151;
+}
+.content p {
+  font-family: "Cabin", sans-serif;
+  font-weight: 300;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #222;
+  line-height: 1.4rem;
+  color: #6b7280;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  width: 4rem;
+  margin-left: 8px;
+}
+.description h3 {
+  display: block;
+  width: 10rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+  margin-top: 0.4rem;
+}
+.description p {
+  margin-top: 0.5rem;
+  width: 10rem;
+  color: #6b7280;
+}
+
+.auther {
+  padding: 0 2rem 2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.i-d {
+  display: flex;
+  flex-direction: row;
+  width: 50px;
+  height: 50px;
+}
+.i-d img {
+  width: 100%;
+  border-radius: 50%;
+  height: 100%;
+}
+
+.action {
+  width: 40px;
+  height: 40px;
+  background-color: #d6dae2;
+  border-radius: 50%;
+  align-self: center;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+.action::after {
+  content: "";
+  display: block;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjQgMjQ7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGcgaWQ9ImluZm8iLz48ZyBpZD0iaWNvbnMiPjxwYXRoIGQ9Ik0yMS43LDEwLjJsLTYuNi02QzE0LjYsMy43LDE0LDQuMiwxNCw1djNjLTQuNywwLTguNywyLjktMTAuNiw2LjhjLTAuNywxLjMtMS4xLDIuNy0xLjQsNC4xICAgYy0wLjIsMSwxLjMsMS41LDEuOSwwLjZDNi4xLDE2LDkuOCwxMy43LDE0LDEzLjdWMTdjMCwwLjgsMC42LDEuMywxLjEsMC44bDYuNi02QzIyLjEsMTEuNCwyMi4xLDEwLjYsMjEuNywxMC4yeiIgaWQ9InNoYXJlIi8+PC9nPjwvc3ZnPg==);
+  background-size: 25px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 2.5rem;
+  min-width: 2.5rem;
+}
+.action:hover {
+  background-color: #6b7280;
+}</style>
+
+<body>
+<!-- partial:index.partial.html -->
+<nav class="navbar navbar-expand-custom navbar-mainbg" style="
+    background: linear-gradient(
+20deg
+, #000000, #000000);
+">
+    <a class="navbar-brand navbar-logo" style="    font-weight: bold;" href="#">B&N</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="
+">
+        <i class="fas fa-bars text-white"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <div class="hori-selector" >
+                <div class="left"></div>
+                <div class="right"></div>
+            </div>
+            <li class="nav-item active " style="
+    font-weight: bold;">
+                <a class="nav-link" href=""><i class="far fa-newspaper"></i>News</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{% url 'Blogindex' %}"><i class="far fa-address-book"></i>Blogs</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{% url 'Deskbord' %}"><i class="fas fa-sliders-h"></i>Deskbord</a>
+            </li>
+
+        </ul>
+    </div>
+
+</nav>
+<div class="container">
+  <div class="card">
+    <img src="{{data.urlToImage}}" alt="">
+    <div class="content">
+      <h1>{{data.title}}</h1>
+        <p><h4>{{data.description}}</h4></p>
+    </div>
+    <div class="auther">
+      <div class="avatar">
+        <div class="i-d">
+          <div class="description">
+            <h3>{{data.author}}</h3>
+            <p>21 Dec 2021</p>
+          </div>
+        </div>
+      </div>
+      <a href="{{data.url}}">
+      <div class="action"></div></a>
+    </div>
+  </div>
+
+</div>
+
+<!-- partial -->
+<script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+<script src="./script.js"></script>
+<script>// ---------Responsive-navbar-active-animation-----------
+function test(){
+  var tabsNewAnim = $('#navbarSupportedContent');
+  var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
+  var activeItemNewAnim = tabsNewAnim.find('.active');
+  var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
+  var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
+  var itemPosNewAnimTop = activeItemNewAnim.position();
+  var itemPosNewAnimLeft = activeItemNewAnim.position();
+  $(".hori-selector").css({
+    "top":itemPosNewAnimTop.top + "px",
+    "left":itemPosNewAnimLeft.left + "px",
+    "height": activeWidthNewAnimHeight + "px",
+    "width": activeWidthNewAnimWidth + "px"
+  });
+  $("#navbarSupportedContent").on("click","li",function(e){
+    $('#navbarSupportedContent ul li').removeClass("active");
+    $(this).addClass('active');
+    var activeWidthNewAnimHeight = $(this).innerHeight();
+    var activeWidthNewAnimWidth = $(this).innerWidth();
+    var itemPosNewAnimTop = $(this).position();
+    var itemPosNewAnimLeft = $(this).position();
+    $(".hori-selector").css({
+      "top":itemPosNewAnimTop.top + "px",
+      "left":itemPosNewAnimLeft.left + "px",
+      "height": activeWidthNewAnimHeight + "px",
+      "width": activeWidthNewAnimWidth + "px"
+    });
+  });
+}
+$(document).ready(function(){
+  setTimeout(function(){ test(); });
+});
+$(window).on('resize', function(){
+  setTimeout(function(){ test(); }, 500);
+});
+$(".navbar-toggler").click(function(){
+  setTimeout(function(){ test(); });
+});
+</script>
+</body>
+</html>

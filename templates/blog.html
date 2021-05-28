@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+
+    <meta charset="UTF-8">
+    <title>CodePen - bootstrap 4 navbar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css'>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<style>@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+
+i {
+	margin-right: 10px;
+}
+/*----------multi-level-accordian-menu------------*/
+.navbar-logo{
+	padding: 15px;
+	    font-weight: bold;
+
+	color: #fff;
+}
+.navbar-mainbg{
+	background-color: #5161ce;
+    background: linear-gradient(
+20deg
+, #000000, #000000);	padding: 0px;
+}
+#navbarSupportedContent{
+	overflow: hidden;
+	position: relative;
+}
+#navbarSupportedContent ul{
+	padding: 0px;
+	margin: 0px;
+}
+#navbarSupportedContent ul li a i{
+	margin-right: 10px;
+}
+#navbarSupportedContent li {
+	list-style-type: none;
+	float: left;
+}
+#navbarSupportedContent ul li a{
+	      color: #ffffff;
+
+
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+    padding: 20px 20px;
+    transition-duration:0.6s;
+	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+}
+#navbarSupportedContent>ul>li.active>a{
+	color: #000000;
+	 font-weight: bold;
+	background-color: transparent;
+	transition: all 0.7s;
+}
+#navbarSupportedContent a:not(:only-child):after {
+	content: "\f105";
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	font-size: 14px;
+	font-family: "Font Awesome 5 Free";
+	display: inline-block;
+	padding-right: 3px;
+	vertical-align: middle;
+	font-weight: 900;
+	transition: 0.5s;
+}
+#navbarSupportedContent .active>a:not(:only-child):after {
+	transform: rotate(90deg);
+}
+.hori-selector{
+	display:inline-block;
+	position:absolute;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	transition-duration:0.6s;
+	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	background-color: #fff;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	margin-top: 10px;
+}
+.hori-selector .right,
+.hori-selector .left{
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	background-color: #fff;
+	bottom: 10px;
+}
+.hori-selector .right{
+	right: -25px;
+}
+.hori-selector .left{
+	left: -25px;
+}
+.hori-selector .right:before,
+.hori-selector .left:before{
+	content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    background-color: #000000;
+
+
+}
+.hori-selector .right:before{
+	bottom: 0;
+    right: -25px;
+}
+.hori-selector .left:before{
+	bottom: 0;
+    left: -25px;
+}
+
+
+@media(min-width: 992px){
+	.navbar-expand-custom {
+	    -ms-flex-flow: row nowrap;
+	    flex-flow: row nowrap;
+	    -ms-flex-pack: start;
+	    justify-content: flex-start;
+	}
+	.navbar-expand-custom .navbar-nav {
+	    -ms-flex-direction: row;
+	    flex-direction: row;
+	}
+	.navbar-expand-custom .navbar-toggler {
+	    display: none;
+	}
+	.navbar-expand-custom .navbar-collapse {
+	    display: -ms-flexbox!important;
+	    display: flex!important;
+	    -ms-flex-preferred-size: auto;
+	    flex-basis: auto;
+	}
+}
+
+
+@media (max-width: 991px){
+	#navbarSupportedContent ul li a{
+		padding: 12px 30px;
+	}
+	.hori-selector{
+		margin-top: 0px;
+		margin-left: 10px;
+		border-radius: 0;
+		border-top-left-radius: 25px;
+		border-bottom-left-radius: 25px;
+	}
+	.hori-selector .left,
+	.hori-selector .right{
+		right: 10px;
+	}
+	.hori-selector .left{
+		top: -25px;
+		left: auto;
+	}
+	.hori-selector .right{
+		bottom: -25px;
+	}
+	.hori-selector .left:before{
+		left: -25px;
+		top: -25px;
+	}
+	.hori-selector .right:before{
+		bottom: -25px;
+		left: -25px;
+	}
+}
+
+</style>
+<style>@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.news-container {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+<!--  justify-content: center;-->
+}
+
+a {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.6em;
+  text-decoration: none;
+  color: #000;
+}
+a:hover {
+  color: #e10619;
+}
+
+.news-list {
+  font-family: "Montserrat", sans-serif;
+  padding: 20px;
+}
+.news-list .news-item {
+  overflow: hidden;
+  cursor: pointer;
+  color: #FFF;
+  display: flex;
+  border-radius: 4px;
+  background: black;
+}
+.news-list .news-item .news-image {
+    min-width: 21%;
+
+  background: white;
+  /* Default image */
+  background-size: cover;
+  background-position: left center;
+  transition: background 0.5s ease;
+}
+.news-list .news-item .news-content {
+  position: relative;
+      width: 802px;
+
+  padding: 2.5em;
+  transition: color 0.2s ease;
+}
+.news-list .news-item .news-content .news-title {
+  position: relative;
+  z-index: 1;
+}
+.news-list .news-item .news-content .news-description {
+  position: relative;
+  z-index: 1;
+}
+.news-list .news-item .news-content .news-button {
+  position: absolute;
+  bottom: -100%;
+  right: 1em;
+  background: white;
+  padding: 0.5em;
+  font-size: 1em;
+  float: right;
+  z-index: -1;
+  transition: 0.4s all cubic-bezier(0.77, 0, 0.175, 1);
+  border-radius: 4px;
+}
+.news-list .news-item .news-content .news-button:hover {
+  color: #000;
+  box-shadow: 0 1px 10px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1px;
+}
+.news-list .news-item .news-content:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: linear-gradient(20deg, #D73C09, #FAB802);
+  height: 100%;
+  width: 0%;
+  transition: 0.5s all cubic-bezier(0.77, 0, 0.175, 1);
+  z-index: 0;
+}
+.news-list .news-item:hover {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+.news-list .news-item:hover .news-image {
+  background-position: right center;
+}
+.news-list .news-item:hover .news-content {
+  color: #000;
+}
+.news-list .news-item:hover .news-content:after {
+  width: 100%;
+}
+.news-list .news-item:hover .news-content .news-button {
+  display: block;
+  bottom: 1em;
+  z-index: 2;
+}
+
+.image-author {
+  padding-left: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  /* codepen magic */
+  .image-author {
+    text-align: center;
+    display: block;
+  }
+
+  .news-list .news-item {
+    flex-flow: column;
+  }
+  .news-list .news-item .news-image {
+    width: auto;
+    height: 260px;
+    background-position: center bottom;
+  }
+}
+
+
+
+</style>
+
+<body>
+<!-- partial:index.partial.html -->
+<nav class="navbar navbar-expand-custom navbar-mainbg">
+    <a class="navbar-brand navbar-logo" href="#">B&N</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars text-white"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <div class="hori-selector">
+                <div class="left"></div>
+                <div class="right"></div>
+            </div>
+            <li class="nav-item ">
+                <a class="nav-link" href="{% url 'index' %}"><i class="far fa-newspaper"></i>News</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="javascript:void(0);"><i class="far fa-address-book"></i>Blogs</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{% url 'Deskbord' %}"><i class="fas fa-sliders-h"></i>Deskbord</a>
+            </li>
+
+        </ul>
+    </div>
+
+</nav>
+<!--<section style="background: url('../static/images/back.jfif') center no-repeat;    padding-top: 130px;-->
+<!--    background-size: cover;  font-weight: 600;-->
+<!--    color: #fff;  margin-left: -36%;-->
+
+<!--     height: 50%;-->
+<!--" class="banner-area organic-breadcrumb">-->
+<!--    <div class="container">-->
+
+<!--        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">-->
+<!--            <div class="col-first">-->
+<!--                <h1>Blog Page</h1>-->
+<!--                <nav class="d-flex align-items-center">-->
+<!--                    <a href="index.html"> Home - <span class="lnr lnr-arrow-right"></span></a>-->
+<!--                    <a href="category.html">> Blog </a>-->
+<!--                </nav>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+
+
+
+<div class="news-container">
+    <div class="wrapper">
+        {% for i in data %}
+
+        <div class="news-list">
+
+            <div class="news-item">
+
+
+                 <div style="color:#000000;      BACKGROUND-COLOR: #bebea2;
+  text-align: center;
+" class="news-image">
+                      <h3> {{i.blog_date|date:"m" }}</h3>
+                          <h1 style="    font-size: 5.5rem;
+"> {{i.blog_date|date:"d" }}</h1>
+
+                   <h3> {{i.blog_date|date:"Y" }}</h3>
+                    </div>
+                <div class="news-content">
+
+                    <h3 class="news-title">{{i.blog_title}}</h3>
+                    <p class="news-description">{{ i.blog_content }}...</p>
+                    by: {{i.U_id}}
+                    <a href="fullblog/{{i.id}}" class="news-button">
+                        Read more
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+        <a class="image-author" href="https://www.pexels.com/@annamw">
+        </a>
+        {% endfor %}
+
+    </div>
+</div>
+
+<!-- partial -->
+<script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+<script src="./script.js"></script>
+<script>// ---------Responsive-navbar-active-animation-----------
+function test(){
+  var tabsNewAnim = $('#navbarSupportedContent');
+  var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
+  var activeItemNewAnim = tabsNewAnim.find('.active');
+  var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
+  var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
+  var itemPosNewAnimTop = activeItemNewAnim.position();
+  var itemPosNewAnimLeft = activeItemNewAnim.position();
+  $(".hori-selector").css({
+    "top":itemPosNewAnimTop.top + "px",
+    "left":itemPosNewAnimLeft.left + "px",
+    "height": activeWidthNewAnimHeight + "px",
+    "width": activeWidthNewAnimWidth + "px"
+  });
+  $("#navbarSupportedContent").on("click","li",function(e){
+    $('#navbarSupportedContent ul li').removeClass("active");
+    $(this).addClass('active');
+    var activeWidthNewAnimHeight = $(this).innerHeight();
+    var activeWidthNewAnimWidth = $(this).innerWidth();
+    var itemPosNewAnimTop = $(this).position();
+    var itemPosNewAnimLeft = $(this).position();
+    $(".hori-selector").css({
+      "top":itemPosNewAnimTop.top + "px",
+      "left":itemPosNewAnimLeft.left + "px",
+      "height": activeWidthNewAnimHeight + "px",
+      "width": activeWidthNewAnimWidth + "px"
+    });
+  });
+}
+$(document).ready(function(){
+  setTimeout(function(){ test(); });
+});
+$(window).on('resize', function(){
+  setTimeout(function(){ test(); }, 500);
+});
+$(".navbar-toggler").click(function(){
+  setTimeout(function(){ test(); });
+});
+
+</script>
+</body>
+</html>

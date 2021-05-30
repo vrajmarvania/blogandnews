@@ -29,56 +29,70 @@ from rest_framework import generics
 from .models import  blogdata
 from .serializers import  blogdataSerializer
 def site_admin(request):
-    data = blogdata.objects.all()
-    u_name = request.user
+    if request.session.has_key('ID'):
 
-    print(data)
-    param = {'data': data, 'u_name': u_name}
-    print(param)
-    return render(request,'site_admin.html',param)
+
+        data = blogdata.objects.all()
+        u_name = request.user
+
+        print(data)
+        param = {'data': data, 'u_name': u_name}
+        print(param)
+        return render(request,'site_admin.html',param)
+    else:
+        return render(request, 'mysite/signup.html')
 
 def addblog(request):
-    if request.method =="POST":
-        print("1")
-        u_id=request.user.id
-        print("}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}")
-        print(u_id)
-        blog_title = request.POST.get('blog_title')
-        blog_content = request.POST.get('blog_content')
-        url = 'http://127.0.0.1:8000/B/submit'
-        data = {
-            'u_id':u_id,
-            'blog_title':blog_title,
-            'blog_content':blog_content,
-        }
-        print(data)
-        print("2")
+    if request.session.has_key('ID'):
 
-        json_data = json.dumps(data)
-        print(json_data)
-        print("3")
+        if request.method =="POST":
+            print("1")
+            u_id=request.user.id
+            print("}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}")
+            print(u_id)
+            blog_title = request.POST.get('blog_title')
+            blog_content = request.POST.get('blog_content')
+            url = 'http://127.0.0.1:8000/B/submit'
+            data = {
+                'u_id':u_id,
+                'blog_title':blog_title,
+                'blog_content':blog_content,
+            }
+            print(data)
+            print("2")
 
-        r = requests.post(url=url, data=json_data)
-        print(r)
-        print("4")
+            json_data = json.dumps(data)
+            print(json_data)
+            print("3")
 
-        data = r.json()
-        print(data)
+            r = requests.post(url=url, data=json_data)
+            print(r)
+            print("4")
+
+            data = r.json()
+            print(data)
+            u_name = request.user
+            param={'data':data,'u_name':u_name}
+            return render(request, "blogform.html",param)
         u_name = request.user
-        param={'data':data,'u_name':u_name}
-        return render(request, "blogform.html",param)
-    u_name = request.user
 
-    param={'u_name':u_name}
-    return render(request, "blogform.html",param)
+        param={'u_name':u_name}
+        return render(request, "blogform.html",param)
+
+    else:
+      return render(request, 'mysite/signup.html')
+
 
 
 def Blogindex(request):
-    data=blogdata.objects.all()
-    print(data)
-    param={'data':data}
-    return render(request,'blog.html',param)
+    if request.session.has_key('ID'):
 
+        data=blogdata.objects.all()
+        print(data)
+        param={'data':data}
+        return render(request,'blog.html',param)
+    else:
+        return render(request, 'mysite/signup.html')
 
 
 import json
@@ -127,28 +141,47 @@ def blog_add(request):
     #     return HttpResponse(json_data, content_type="application/json")
 
 def fullblog(request,id):
+    if request.session.has_key('ID'):
 
-    data=blogdata.objects.filter(id=id)
-    print(data[0])
-    param={'data':data[0]}
-    print(param)
-    return render(request,'fullblog.html',param)
+        data = blogdata.objects.filter(id=id)
+        print(data[0])
+        param = {'data': data[0]}
+        print(param)
+        return render(request, 'fullblog.html', param)
+
+    else:
+        return render(request, 'mysite/signup.html')
+
 
 def Deskbord(request):
-    data = blogdata.objects.filter(u_id=1)
-    u_name = request.user
+    if request.session.has_key('ID'):
 
-    print(data)
-    param = {'data': data,'u_name':u_name}
-    print(param)
+        id = request.user.id
 
-    return render(request, 'Deskbord.html',param)
+        data = blogdata.objects.filter(u_id=id)
+        u_name = request.user
+
+        print(data)
+        param = {'data': data, 'u_name': u_name}
+        print(param)
+
+        return render(request, 'Deskbord.html', param)
+
+    else:
+        return render(request, 'mysite/signup.html')
+
 
 def dell(request,id):
-    print(id)
-    blogdata.objects.filter(id=id).delete()
+    if request.session.has_key('ID'):
 
-    return redirect('/B/Deskbord')
+        print(id)
+        blogdata.objects.filter(id=id).delete()
+
+        return redirect('/B/Deskbord')
+
+    else:
+        return render(request, 'mysite/signup.html')
+
 
 
 

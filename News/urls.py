@@ -23,5 +23,4 @@ urlpatterns = [
     path("Nview/<str:name>", views.Nview, name='index'),
     # path("Nav", views.Nav, name='index'),
 
-
 ]

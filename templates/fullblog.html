@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CodePen - bootstrap 4 navbar</title>
+    <title>Blogs</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
@@ -352,6 +352,9 @@ p {
             <li class="nav-item ">
                 <a class="nav-link" href="{% url 'Deskbord' %}"><i class="fas fa-sliders-h"></i>Deskbord</a>
             </li>
+             <li class="nav-item ">
+                <a class="nav-link" onclick="myFunction()"><i class="fas fa-sign-out-alt"></i>logout</a>
+            </li>
 
         </ul>
     </div>
@@ -417,5 +420,6 @@ $(".navbar-toggler").click(function(){
 });
 
 </script>
+
 </body>
 </html>

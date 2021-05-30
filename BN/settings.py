@@ -23,16 +23,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '#i1zx)xl2=jn%+myyp=o%zif(9f70$h=mr23breq5iki2ead2c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['blogsandnewsapp.herokuapp.com/','localhost']
+ALLOWED_HOSTS = ['127.0.0.1']
+
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -41,6 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'News',
     'Account',
+    'django.contrib.admin',
+    'django.contrib.auth',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +140,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 MEDIA_URL="/media/"
 MEDIA_ROOT=os.path.join(BASE_DIR, "media/")
 UTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'blogandnews664@gmail.com'
+EMAIL_HOST_PASSWORD = 'Vraj@2000'
+EMAIL_USE_TLS = True
+

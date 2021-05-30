@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>CodePen - bootstrap 4 navbar</title>
+    <title>blogs</title>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -343,6 +343,9 @@ a:hover {
             <li class="nav-item ">
                 <a class="nav-link" href="{% url 'Deskbord' %}"><i class="fas fa-sliders-h"></i>Deskbord</a>
             </li>
+             <li class="nav-item ">
+                <a class="nav-link" onclick="myFunction()" ><i class="fas fa-sign-out-alt"></i>logout</a>
+            </li>
 
         </ul>
     </div>
@@ -392,8 +395,7 @@ a:hover {
                 <div class="news-content">
 
                     <h3 class="news-title">{{i.blog_title}}</h3>
-                    <p class="news-description">{{ i.blog_content }}...</p>
-                    by: {{i.U_id}}
+                    <p class="news-description">{{ i.blog_content|slice:":150" }}...</p>
                     <a href="fullblog/{{i.id}}" class="news-button">
                         Read more
                     </a>
@@ -453,6 +455,14 @@ $(".navbar-toggler").click(function(){
   setTimeout(function(){ test(); });
 });
 
+</script>
+<script>
+function myFunction() {
+
+     if (window.confirm("Do you really want to leave?")) {
+  window.open("{% url 'logout' %}", "Thanks for Visiting!");
+}
+}
 </script>
 </body>
 </html>

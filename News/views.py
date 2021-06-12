@@ -4,51 +4,37 @@ from django.shortcuts import render, redirect
 
 
 # Create your views here.
-def index(request):
+def index(request, s='vice-news'):
     if request.session.has_key('ID'):
-        print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-        query_params = {
-            "country": "in",
-            "source": "CNN",
-            "sortBy": "top",
-            "apiKey": "57bacea1eac14b82bd851fcb8c72a30d"
-        }
-        main_url = " https://newsapi.org/v1/articles"
 
-        # fetching data in json format
-        res = requests.get(main_url, params=query_params)
-        open_bbc_page = res.json()
+        url = ('https://newsapi.org/v2/top-headlines?'
+               'sources=' + s + '&'
+                                'apiKey=8cbb433989614c04a8be7b697b277b06')
+
+        response = requests.get(url)
+        open_bbc_page = response.json()
         print(open_bbc_page)
         data = open_bbc_page.get('articles')
-        params = {'data': data}
+        print(data)
+        params = {'data': data, 's': s}
         return render(request, 'index.html', params)
     else:
-        return render(request,'mysite/signup.html')
+        return render(request, 'mysite/signup.html')
 
 
-
-
-def Nview(request, name):
+def Nview(request, s, name):
     if request.session.has_key('ID'):
 
-        query_params = {
-            "country":"in",
-            "source": "CNN",
-            "sortBy": "top",
-            "apiKey": "57bacea1eac14b82bd851fcb8c72a30d"
-        }
-        main_url = " https://newsapi.org/v1/articles"
+        url = ('https://newsapi.org/v2/top-headlines?'
+               'sources=' + s + '&'
+                                'apiKey=8cbb433989614c04a8be7b697b277b06')
 
-        # fetching data in json format
-        res = requests.get(main_url, params=query_params)
-        open_bbc_page = res.json()
-        print(open_bbc_page)
+        response = requests.get(url)
+        open_bbc_page = response.json()
         data = open_bbc_page.get('articles')
         for i in data:
-
-
             if (i.get("title")) == name:
                 param = {'data': i}
                 return render(request, 'Nview.html', param)
     else:
-        return render(request,'mysite/signup.html')
+        return render(request, 'mysite/signup.html')

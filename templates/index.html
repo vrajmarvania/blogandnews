@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <title>news</title>
@@ -11,7 +12,101 @@
     <link rel="stylesheet" href="./style.css">
 
 </head>
-<style>@import url('https://fonts.googleapis.com/css?family=Roboto');
+<style>
+#logoParade {
+  width: 728px;
+  height: 75px;
+  position: relative;
+}
+
+#logoParade div.scrollableArea a {
+  display: block;
+  float: left;
+  padding-left: 10px;
+}
+img:hover {
+    box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
+}
+/* SMOOTHDIVSCROLL.CSS ================= */
+/* You can alter this CSS in order to give Smooth Div Scroll your own look'n'feel */
+
+/* Invisible left hotspot */
+div.scrollingHotSpotLeft
+{
+	/* The hotspots have a minimum width of 100 pixels and if there is room the will grow
+    and occupy 15% of the scrollable area (30% combined). Adjust it to your own taste. */
+	min-width: 75px;
+	width: 10%;
+	height: 100%;
+	/* There is a big background image and it's used to solve some problems I experienced
+    in Internet Explorer 6. */
+	background-image: url(../images/big_transparent.gif);
+	background-repeat: repeat;
+	background-position: center center;
+	position: absolute;
+	z-index: 200;
+	left: 0;
+	/*  The first url is for Firefox and other browsers, the second is for Internet Explorer */
+	cursor: url(../images/cursors/cursor_arrow_left.png), url(../images/cursors/cursor_arrow_left.cur),w-resize;
+}
+
+/* Visible left hotspot */
+div.scrollingHotSpotLeftVisible
+{
+	background-image: url(../images/arrow_left.gif);
+	background-color: #fff;
+	background-repeat: no-repeat;
+	opacity: 0.35; /* Standard CSS3 opacity setting */
+	-moz-opacity: 0.35; /* Opacity for really old versions of Mozilla Firefox (0.9 or older) */
+	filter: alpha(opacity = 35); /* Opacity for Internet Explorer. */
+	zoom: 1; /* Trigger "hasLayout" in Internet Explorer 6 or older versions */
+}
+
+/* Invisible right hotspot */
+div.scrollingHotSpotRight
+{
+	min-width: 75px;
+	width: 10%;
+	height: 100%;
+	background-image: url(../images/big_transparent.gif);
+	background-repeat: repeat;
+	background-position: center center;
+	position: absolute;
+	z-index: 200;
+	right: 0;
+	cursor: url(../images/cursors/cursor_arrow_right.png), url(../images/cursors/cursor_arrow_right.cur),e-resize;
+}
+
+/* Visible right hotspot */
+div.scrollingHotSpotRightVisible
+{
+	background-image: url(../images/arrow_right.gif);
+	background-color: #fff;
+	background-repeat: no-repeat;
+	opacity: 0.35;
+	filter: alpha(opacity = 35);
+	-moz-opacity: 0.35;
+	zoom: 1;
+}
+
+/* The scroll wrapper is always the same width and height as the containing element (div).
+   Overflow is hidden because you don't want to show all of the scrollable area.
+*/
+div.scrollWrapper
+{
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+
+div.scrollableArea
+{
+	position: relative;
+	width: auto;
+	height: 100%;
+}
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 
 
@@ -343,6 +438,60 @@ a:hover {
 
 </nav>
 
+<div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:100px;overflow:hidden;visibility:hidden;">
+  <!-- Loading Screen -->
+  <div data-u="loading" style="position:absolute;top:0px;left:0px;background-color:rgba(0,0,0,0.7);">
+    <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+    <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+  </div>
+  <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:100px;overflow:hidden;">
+  <div>
+      <a href="http://127.0.0.1:8000/N/index/vice-news" > <img data-u="image" src="{% static 'image1.png' %}" /></a>
+    </div>
+    <div>
+      <a href="http://127.0.0.1:8000/N/index/bbc-news" ><img data-u="image" src="{% static 'image2.png' %}" /></a>
+    </div>
+    <div>
+      <a href="http://127.0.0.1:8000/N/index/time" ><img data-u="image" src="{% static 'image3.png' %}" /></a>
+    </div>
+    <div>
+      <a href="http://127.0.0.1:8000/N/index/cbc-news" ><img data-u="image" src="{% static 'image4.png' %}" /></a>
+    </div>
+    <div>
+      <a href="http://127.0.0.1:8000/N/index/al-jazeera-english" ><img data-u="image" src="{% static 'image5.png' %}" /></a>
+    </div>
+    <div>
+      <a href="http://127.0.0.1:8000/N/index/fox-news" ><img data-u="image" src="{% static 'image7.png' %}" /></a>
+    </div>
+      <div>
+      <a href="http://127.0.0.1:8000/N/index/cnn" ><img data-u="image" src="{% static 'image8.png' %}" /></a>
+    </div>
+    <a data-u="any" href="http://www.jssor.com" style="display:none">Scrolling Logo Thumbnail Slider</a>
+
+<div>
+      <a href="http://127.0.0.1:8000/N/index/vice-news" > <img data-u="image" src="{% static 'image1.png' %}" /></a>
+    </div>
+    <div>
+      <a href="http://127.0.0.1:8000/N/index/bbc-news" ><img data-u="image" src="{% static 'image2.png' %}" /></a>
+    </div>
+    <div>
+      <a href="http://127.0.0.1:8000/N/index/time" ><img data-u="image" src="{% static 'image3.png' %}" /></a>
+    </div>
+    <div>
+      <a href="http://127.0.0.1:8000/N/index/cbc-news" ><img data-u="image" src="{% static 'image4.png' %}" /></a>
+    </div>
+    <div>
+      <a href="http://127.0.0.1:8000/N/index/al-jazeera-english" ><img data-u="image" src="{% static 'image5.png' %}" /></a>
+    </div>
+    <div>
+      <a href="http://127.0.0.1:8000/N/index/fox-news" ><img data-u="image" src="{% static 'image7.png' %}" /></a>
+    </div>
+      <div>
+      <a href="http://127.0.0.1:8000/N/index/cnn" ><img data-u="image" src="{% static 'image8.png' %}" /></a>
+    </div>
+  </div>
+</div>
+
 <div class="news-container">
     <div class="wrapper">
                         {% for i in data %}
@@ -356,7 +505,7 @@ a:hover {
                     <h3 class="news-title">{{i.title}}</h3>
                     <p class="news-description">{{ i.description|truncatewords:50 }}...</p>
 
-                    <a href="Nview/{{i.title}}" class="news-button">
+                    <a href="http://127.0.0.1:8000/N/Nview/{{s}}/{{i.title}}" class="news-button">
                         Read more
                     </a>
                 </div>
@@ -370,7 +519,7 @@ a:hover {
     </div>
 </div>
 
-<!-- partial -->
+ partial
 <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
 <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
 <script src="./script.js"></script>
@@ -423,5 +572,7 @@ function myFunction() {
 }
 }
 </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script><script  src="{% static 'script.js' %}"></script>
+
 </body>
 </html>

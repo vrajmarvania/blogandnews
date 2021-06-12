@@ -20,7 +20,10 @@ from . import views
 
 urlpatterns = [
     path("index", views.index, name='index'),
-    path("Nview/<str:name>", views.Nview, name='index'),
+
+    path("index/<str:s>", views.index, name='index'),
+    path("Nview/<str:s>/<str:name>", views.Nview, name='index'),
     # path("Nav", views.Nav, name='index'),
+
 
 ]
